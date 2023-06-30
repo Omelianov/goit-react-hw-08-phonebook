@@ -3,7 +3,9 @@ import css from './AddForm.module.css';
 import { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { getContacts } from '../../redux/selectors';
-import { addContact } from '../../redux/contactsSlice';
+import { addContact } from '../../redux/contactsOperations';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.min.css';
 
 
 const AddForm = () => {
@@ -24,8 +26,7 @@ const AddForm = () => {
     event.preventDefault();
 
     if (name.trim() === '' || number.trim() === '') {
-      alert('Please enter a name and a number.');
-      return;
+      return toast.error('Please enter a name and a number.');
     }
 
     const newContact = {
@@ -44,8 +45,7 @@ const AddForm = () => {
   const findContact = contacts.find(contact => contact.name.toLowerCase() === newContact.name.toLowerCase());
 
   if (findContact) {
-    alert(`${newContact.name} уже присутствует в контактах`);
-    return;
+    return toast.error(`${newContact.name} уже присутствует в контактах`);
   }
 
   dispatch(addContact(newContact));
@@ -56,6 +56,7 @@ const AddForm = () => {
       <label className={css.label}>
         <span className={css.name}>Name</span>
         <input
+          className={css.title_n}
           type="text"
           name="name"
           placeholder="enter name here"
@@ -69,7 +70,7 @@ const AddForm = () => {
 
       <label className={css.label}>
         <span className={css.number}>Number</span>
-        <input
+        <input className={css.title_n}
           type="tel"
           name="number"
           placeholder="enter number here"
@@ -81,6 +82,7 @@ const AddForm = () => {
         />
       </label>
       <button className={css.button} type="submit">Add contact</button>
+      <ToastContainer />
     </form>
   );
 };
