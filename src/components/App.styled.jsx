@@ -41,7 +41,9 @@ export const Wrapper = styled.div`
 `;
 
 export const Title = styled.h1`
-  margin-bottom: 25px;
+  margin-bottom: 60px;
+  text-align: center;
+  filter: drop-shadow(2px 1px 1px);
 
   font-size: 38px;
   font-weight: 700;
@@ -55,7 +57,6 @@ export const Title = styled.h1`
 
 export const Subtitle = styled.h2`
   margin-bottom: 20px;
-
   font-size: 32px;
   font-weight: 500;
   color: #fff;
@@ -65,9 +66,9 @@ export const Subtitle = styled.h2`
 export const Paragraph = styled.p`
   margin-bottom: 25px;
 
-  font-size: 18px;
+  font-size: 20px;
   line-height: 1.8;
-  color: rgba(47, 47, 47, 0.6);
+  color: rgb(253, 236, 236);
 `;
 
 export const Info = styled.p`
