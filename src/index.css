@@ -13,7 +13,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
 
   /* background: linear-gradient(180deg, #a8edea 0%, #fed6e3 100%); */
-  background: linear-gradient(180deg, #6a9bd8 0%, #ffb6cd 100%);
+  background: linear-gradient(180deg, #5678a1 0%, #a42727 100%);
 
   min-height: 100vh;
   display: flex;
@@ -50,7 +50,7 @@ img {
   --secondary: #858585;
   --bg: rgba(255, 255, 255, 0.2);
   --main-shadow: -2px -2px 5px #ffffff, 3px 3px 5px rgba(0, 0, 0, 0.1);
-  --inset-shadow: inset -2px -2px 5px #ffffff,
+  --inset-shadow: inset -2px -2px 5px #de0707,
     inset 3px 3px 5px rgba(0, 0, 0, 0.1);
   --good: rgba(96, 205, 74, 0.7);
   --neutral: rgba(205, 185, 74, 0.7);
