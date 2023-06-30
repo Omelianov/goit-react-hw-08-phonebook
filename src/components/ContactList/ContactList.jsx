@@ -1,36 +1,24 @@
-import { useSelector, useDispatch } from 'react-redux';
-import { getContacts, getFilter } from '../../redux/selectors';
-import { ContactItem } from '../ContactItem/ContactItem';
-import css from './ContactList.module.css'
-import { deleteContact } from '../../redux/contactsOperations';
+import { useSelector } from 'react-redux';
+import { selectContacts } from 'redux/contacts/selectors';
+import { selectContactFilter } from 'redux/filter/selectors';
+import { ContactItem } from 'components/ContactItem/ContactItem';
+import { Contacts, Subtitle } from './ContactList.styled';
 
 export const ContactList = () => {
-  const contacts = useSelector(getContacts);
-  const filter = useSelector(getFilter);
-  const contactSearch = contacts.filter(contact =>
-    contact.name.toLowerCase().includes(filter.trim().toLowerCase())
+  const contacts = useSelector(selectContacts);
+  const filter = useSelector(selectContactFilter);
+  const filteredContacts = contacts.filter(contact =>
+    contact.name.toLowerCase().includes(filter.toLowerCase())
   );
 
-  const dispatch = useDispatch();
-
-  const handleDeleteContact = id => {
-    dispatch(deleteContact(id));
-  };
-
   return (
-    <ul className={css.list}>
-      {contactSearch.map(a => {
-        return (
-          <li key={a.id}>
-            <ContactItem
-              name={a.name}
-              number={String(a.phone)}
-              itemKey={a.id}
-              deleteContact={handleDeleteContact}
-            />
-          </li>
-        );
-      })}
-    </ul>
+    <>
+      <Subtitle>Contacts list</Subtitle>
+      <Contacts>
+        {filteredContacts.map(({ id, name, number }) => {
+          return <ContactItem key={id} id={id} name={name} number={number} />;
+        })}
+      </Contacts>
+    </>
   );
 };
