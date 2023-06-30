@@ -1,22 +1,10 @@
-/* .list {
-  list-style: none;
-  margin-left: 0;
-  padding-left: 0;
-}
-.button {
-  background-color: #0e232e;
-  cursor: pointer;
-  border-radius: 4px;
-  color: #ffffff;
-
-  border-color:#6f3a3a;
-} */
-
 
 import styled from '@emotion/styled';
 
 export const Subtitle = styled.p`
-  margin-bottom: 5px;
+  
+  margin-top: 30px;
+  margin-bottom: 30px;
 
   font-size: 22px;
   color: #fff;

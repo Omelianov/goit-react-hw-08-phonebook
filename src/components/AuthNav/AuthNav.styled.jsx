@@ -11,7 +11,7 @@ export const AuthItem = styled(NavLink)`
   position: relative;
 
   font-weight: 500;
-  font-size: 18px;
+  font-size: 22px;
   color: rgba(255, 255, 255, 0.7);
   text-decoration: none;
   text-shadow: 0px 1px 1px rgba(0, 0, 0, 0.2);
