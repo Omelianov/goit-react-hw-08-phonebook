@@ -83,11 +83,11 @@ export const BtnDelete = styled.button`
 
   font-size: 18px;
   font-weight: 500;
-  color: rgba(227, 67, 67, 0.7);
+  color: rgba(84, 0, 0, 0.9);
 
   background-color: transparent;
 
-  border: 1px solid rgba(227, 67, 67, 0.7);
+  border: 1px solid rgba(227, 67, 67, 0.9);
   border-radius: 10px;
 
   transition: all 250ms ease-in-out;
