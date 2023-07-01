@@ -9,16 +9,19 @@ import { ContactsPage } from 'pages/Contacts';
 import { refreshUser } from 'redux/auth/operations';
 import { RestrictedRoute } from './RestrictedRoute';
 import { PrivateRoute } from './PrivateRoute';
+import { useAuth } from '../hooks/useAuth';
 
 export const App = () => {
   const dispatch = useDispatch();
+  const { isRefreshing } = useAuth();
 
   useEffect(() => {
     dispatch(refreshUser());
   }, [dispatch]);
 
-  return (
-    <>
+  return isRefreshing ? (
+    <b>Refreshing user...</b>
+  ) : (
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<HomePage />} />
@@ -36,6 +39,5 @@ export const App = () => {
           />
         </Route>
       </Routes>
-    </>
   );
 };
