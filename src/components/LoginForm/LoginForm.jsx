@@ -19,19 +19,19 @@ import {
 } from './LoginForm.styled';
 
 const initialValues = {
-  email: 'test-user-33@gmail.com',
-  password: 'Test-user-33',
+  email: '',
+  password: '',
 };
 
 export const LoginForm = () => {
   const dispatch = useDispatch();
   const [passwordShown, setPasswordShown] = useState(false);
 
-  const handleSubmit = (values, { resetForm }) => {
+  const handleSubmit = (value, { resetForm }) => {
     dispatch(
       logIn({
-        email: values.email,
-        password: values.password,
+        email: value.email,
+        password: value.password,
       })
     );
 
